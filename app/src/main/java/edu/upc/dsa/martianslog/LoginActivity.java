@@ -53,16 +53,15 @@ public class LoginActivity extends AppCompatActivity
             passtext_log=(TextView) findViewById(R.id.passtex_log);
 
             LoginUsuari user =new LoginUsuari(usertext_login.getText().toString(),passtext_log.getText().toString());
-            Log.d(TAG,"LoginUsername Login user" + user.getUsername());
+            Log.d(TAG,"LoginUsername Login user " + user.getUsername()+" and password: " + user.getPassword());
             Call<LoginUsuari> call= apiService.loginUser(user);
-            call.enqueue(new Callback<LoginUsuari>()
-            {
+            call.enqueue(new Callback<LoginUsuari>() {
                 @Override
                 public void onResponse(Call<LoginUsuari> call, Response<LoginUsuari> response)
                 {
                     if(response.isSuccessful())
                     {
-                        LoginUsuari loginUsuari =response.body();
+                        LoginUsuari loginUsuari = response.body();
                         Toast.makeText(LoginActivity.this,"Welcome:" + loginUsuari.getUsername(),Toast.LENGTH_LONG).show();
                         Log.d(TAG,"lOGINuSER sUCCESSFUL LOGINUSER" + loginUsuari.getUsername());
                         saveSharedPreference(loginUsuari);
@@ -70,22 +69,19 @@ public class LoginActivity extends AppCompatActivity
                         startActivity(intent);
                         finish();
 
-
                     } else {
                         Log.d(TAG, "LoginUser Error loguin User:" + response.code());
                         Toast.makeText(LoginActivity.this, "Usuario no registrado", Toast.LENGTH_LONG).show();
-                        return;
+                        //return;
                     }
-
-
                 }
 
                 @Override
                 public void onFailure(Call<LoginUsuari> call, Throwable t)
                 {
+                    Toast.makeText(LoginActivity.this, "HELLOOOO!", Toast.LENGTH_LONG);
                     Toast.makeText(LoginActivity.this, "Error en la conecion del servico", Toast.LENGTH_LONG).show();
                     Log.d(TAG,"lOGUINuSER Error loguin user response from service retrofit:"+ t.getMessage());
-
                 }
             });
 

@@ -16,6 +16,6 @@ public interface ApiService
     Call<LoginUsuari> loginUser(@Body LoginUsuari user);
 
     @POST("user/register")
-    Call<Usuari> addUser(@Body RegisterUsuari usuari);
+    Call<RegisterUsuari> addUser(@Body RegisterUsuari usuari);
 
 }

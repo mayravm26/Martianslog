@@ -62,10 +62,10 @@ public class RegisterActivity extends AppCompatActivity
         String pass=passwordRegister.getText().toString();
 
         RegisterUsuari userRegister= new RegisterUsuari(name,surname,user,pass);
-        Call<Usuari> call =apiService.addUser(userRegister);
-        call.enqueue(new Callback<Usuari>() {
+        Call<RegisterUsuari> call = apiService.addUser(userRegister);
+        call.enqueue(new Callback<RegisterUsuari>() {
             @Override
-            public void onResponse(Call<Usuari> call, Response<Usuari> response)
+            public void onResponse(Call<RegisterUsuari> call, Response<RegisterUsuari> response)
             {
                 if (!response.isSuccessful())
                 {
@@ -73,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity
                     Toast.makeText(RegisterActivity.this,"User name already register", Toast.LENGTH_LONG).show();
                     return;
                 }
-                Usuari usuari=response.body();
+                RegisterUsuari usuari =response.body();
                 Toast.makeText(RegisterActivity.this,"Welcome"+usuari.getUsername(), Toast.LENGTH_LONG).show();
                 Log.d(TAG2,"AddUser, Successful adduser"+usuari.getUsername());
                 SharedPreferences sharedPreferences =getSharedPreferences("credenciales", Context.MODE_PRIVATE);
@@ -90,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity
             }
 
             @Override
-            public void onFailure(Call<Usuari> call, Throwable t)
+            public void onFailure(Call<RegisterUsuari> call, Throwable t)
             {
                 Toast.makeText(RegisterActivity.this, "Error in getting response from service", Toast.LENGTH_LONG).show();
                 Log.d(TAG2,"AddUser Error addUser in getting response from service using retrofit: "+t.getMessage());
