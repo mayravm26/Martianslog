@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import retrofit2.Retrofit;
@@ -30,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity
     TextView nameRegister;
     TextView surnameRegister;
     TextView passwordRegister;
+    ProgressBar progressBar;
 
     ApiService apiService;
     public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
@@ -51,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity
         nameRegister=findViewById(R.id.nameRegisterText);
         surnameRegister=findViewById(R.id.surnameRegisterText);
         passwordRegister=findViewById(R.id.passwordRegisterText);
+        progressBar = findViewById(R.id.progressBar);
 
     }
 
@@ -63,10 +66,15 @@ public class RegisterActivity extends AppCompatActivity
 
         RegisterUsuari userRegister= new RegisterUsuari(name,surname,user,pass);
         Call<RegisterUsuari> call = apiService.addUser(userRegister);
+
+        //Se visualiza el progress bar antes de relizar la llamada a la API
+        //Se oculta en caso de respuesta y/o fallo
+        progressBar.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<RegisterUsuari>() {
             @Override
             public void onResponse(Call<RegisterUsuari> call, Response<RegisterUsuari> response)
             {
+                progressBar.setVisibility(View.GONE);
                 if (!response.isSuccessful())
                 {
                     Log.d(TAG2,"AddUser, Error addUser"+response.code());

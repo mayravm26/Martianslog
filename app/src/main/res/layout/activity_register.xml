@@ -69,6 +69,14 @@
                 android:onClick="registeronClicBtn"
                 android:text="Register" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:progressDrawable="@drawable/spinner"/>
+
         </LinearLayout>
     </ScrollView>
 
