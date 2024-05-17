@@ -1,5 +1,9 @@
 package edu.upc.dsa.martianslog.service;
 
+import com.google.android.gms.analytics.ecommerce.Product;
+
+import java.util.List;
+
 import edu.upc.dsa.martianslog.models.Usuari;
 import retrofit2.Call;
 import retrofit2.http.POST;
@@ -18,4 +22,18 @@ public interface ApiService
     @POST("user/register")
     Call<RegisterUsuari> addUser(@Body RegisterUsuari usuari);
 
+    @GET("/store/getStoreProducts")
+    Call<List<Product>> getStoreProducts();
+
+    @POST("/store/addProduct")
+    Call<Product> addProduct(@Body Product product);
+
+    @GET("/store/getProduct/{id}")
+    Call<Product> getProduct(@Path("id") String id);
+
+    @DELETE("/store/deleteProduct/{id}")
+    Call<Void> deleteProduct(@Path("id") String id);
+
+    @POST("/store/buyProduct/{username}/{idProduct}")
+    Call<List<Product>> buyProduct(@Path("username") String username, @Path("idProduct") String idProduct);
 }
