@@ -14,11 +14,11 @@ public class PerfilMainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        Button buttonOpenListaActivity = findViewById(R.id.lista);
-        buttonOpenListaActivity.setOnClickListener(new View.OnClickListener() {
+        Button buttonTienda = findViewById(R.id.tienda);
+        buttonTienda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PerfilMainActivity.this, ListaActivity.class);
+                Intent intent = new Intent(PerfilMainActivity.this, TiendaActivity.class);
                 startActivity(intent);
             }});
     }

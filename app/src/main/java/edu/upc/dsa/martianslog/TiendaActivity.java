@@ -1,19 +1,12 @@
 package edu.upc.dsa.martianslog;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-
-
+import edu.upc.dsa.martianslog.models.Product;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.analytics.ecommerce.Product;
-
 import java.util.List;
-
 import edu.upc.dsa.martianslog.service.ApiService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,11 +14,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ListaActivity extends AppCompatActivity {
+public class TiendaActivity extends AppCompatActivity {
     private ApiService apiService;
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista);
+        setContentView(R.layout.activity_tienda);
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -50,20 +43,21 @@ public class ListaActivity extends AppCompatActivity {
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (!response.isSuccessful()) {
                     Log.d("API", "Error code: " + response.code());
-                    Toast.makeText(ListaActivity.this, "Failed to fetch products", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TiendaActivity.this, "Failed to fetch products", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 List<Product> products = response.body();
                 for (Product product : products) {
-                    //Log.d("API", "Product: " + product.getId()); revisarlo no se porque no va
+                    Log.d("API", "Product: " + product.getName());
+
                 }
             }
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 Log.d("API", "Error: " + t.getMessage());
-                Toast.makeText(ListaActivity.this, "Error fetching products", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TiendaActivity.this, "Error fetching products", Toast.LENGTH_SHORT).show();
             }
         });
     }
