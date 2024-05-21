@@ -1,12 +1,20 @@
 package edu.upc.dsa.martianslog;
+
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import edu.upc.dsa.martianslog.models.Product;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
+
+import edu.upc.dsa.martianslog.models.Product;
 import edu.upc.dsa.martianslog.service.ApiService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -14,12 +22,20 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
 public class TiendaActivity extends AppCompatActivity {
+    RecyclerView recycle;
     private ApiService apiService;
-    protected void onCreate(Bundle savedInstanceState){
+    SharedPreferences sharedPreferences;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tienda);
-
+        recycle = findViewById(R.id.recycle);
+        //dinero = findViewById(R.id.titulo);
+        //sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+        LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        recycle.setLayoutManager(llm);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:8080/dsaApp/")
@@ -27,14 +43,7 @@ public class TiendaActivity extends AppCompatActivity {
                 .build();
 
         apiService = retrofit.create(ApiService.class);
-        Button getProductsButton = findViewById(R.id.productos);
-        getProductsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getStoreProducts();
-
-            }
-        });
+        getStoreProducts();
     }
     private void getStoreProducts() {
         Call<List<Product>> call = apiService.getStoreProducts();
@@ -50,7 +59,6 @@ public class TiendaActivity extends AppCompatActivity {
                 List<Product> products = response.body();
                 for (Product product : products) {
                     Log.d("API", "Product: " + product.getName());
-
                 }
             }
 

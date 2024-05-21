@@ -12,13 +12,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Martianslog"
-        android:name=".TiendaActivity"
         tools:targetApi="31">
         <activity
             android:name=".PerfilMainActivity"
             android:exported="false"
-            android:theme="@style/Theme.Martianslog" />
+            android:theme="@style/Theme.Martianslog"
+             />
+        <activity
+            android:name=".TiendaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Martianslog"
+             />
         <activity
             android:name=".MainActivity"
             android:exported="true"

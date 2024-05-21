@@ -9,13 +9,12 @@ import android.content.Intent;
 public class PerfilMainActivity extends AppCompatActivity
 {
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        Button buttonTienda = findViewById(R.id.tienda);
-        buttonTienda.setOnClickListener(new View.OnClickListener() {
+        Button buttonOpenListaActivity = findViewById(R.id.tienda);
+        buttonOpenListaActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PerfilMainActivity.this, TiendaActivity.class);
