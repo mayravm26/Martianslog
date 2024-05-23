@@ -20,10 +20,10 @@ public interface ApiService
     @POST("user/register")
     Call<RegisterUsuari> addUser(@Body RegisterUsuari usuari);
 
-    @GET("/store/getStoreProducts")
+    @GET("store/getStoreProducts")
     Call<List<Product>> getStoreProducts();
 
-    @POST("/store/addProduct")
+    @POST("store/addProduct")
     Call<Product> addProduct(@Body Product product);
 
     @GET("/store/getProduct/{id}")
