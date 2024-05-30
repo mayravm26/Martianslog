@@ -11,73 +11,114 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Register"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+            android:background="@drawable/background1">
 
             <EditText
                 android:id="@+id/usernameRegisterText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="40dp"
                 android:ems="10"
                 android:hint="Your username"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColorHint="#B4E3A2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <EditText
                 android:id="@+id/nameRegisterText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
                 android:ems="10"
                 android:hint="Your name"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColorHint="#B4E3A2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/usernameRegisterText"
+                app:layout_constraintTop_toBottomOf="@+id/usernameRegisterText" />
 
             <EditText
                 android:id="@+id/surnameRegisterText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
                 android:ems="10"
                 android:hint="Your surname"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColorHint="#B4E3A2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/nameRegisterText"
+                app:layout_constraintTop_toBottomOf="@+id/nameRegisterText" />
 
             <EditText
                 android:id="@+id/passwordRegisterText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
                 android:ems="10"
                 android:hint="Your password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColorHint="#B4E3A2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/surnameRegisterText"
+                app:layout_constraintTop_toBottomOf="@+id/surnameRegisterText" />
 
             <Button
                 android:id="@+id/registerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:onClick="registeronClicBtn"
-                android:text="Register" />
+                android:text="Register"
+                app:backgroundTint="#B4E3A2"
+                app:layout_constraintEnd_toEndOf="@+id/passwordRegisterText"
+                app:layout_constraintHorizontal_bias="0.516"
+                app:layout_constraintStart_toStartOf="@+id/passwordRegisterText"
+                app:layout_constraintTop_toBottomOf="@+id/passwordRegisterText" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
                 style="?android:attr/progressBarStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:progressDrawable="@drawable/spinner"
                 android:visibility="gone"
-                android:progressDrawable="@drawable/spinner"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="354dp"
+                android:layout_marginEnd="290dp"
+                android:layout_marginBottom="20dp"
+                android:text="Fill in your details:"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/usernameRegisterText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
 

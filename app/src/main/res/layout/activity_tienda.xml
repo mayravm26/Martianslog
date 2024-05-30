@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TiendaActivity">
+    tools:context=".TiendaActivity"
+    android:background="@drawable/background2">
 
     <TextView
         android:id="@+id/dinero"
@@ -24,14 +25,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
-
-    <Button
-        android:id="@+id/btn_compra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="btn_compra"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="522dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
