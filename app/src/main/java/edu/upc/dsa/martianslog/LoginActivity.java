@@ -66,8 +66,26 @@ public class LoginActivity extends AppCompatActivity
                         Log.d(TAG,"lOGINuSER sUCCESSFUL LOGINUSER" + loginUsuari.getUsername());
                         saveSharedPreference(loginUsuari);
                         Intent intent = new Intent(LoginActivity.this,PerfilMainActivity.class);
+                        String usernamelogin = usertext_login.getText().toString();
+                        intent.putExtra("username", usernamelogin);
                         startActivity(intent);
                         finish();
+
+
+
+                        /*LoginUsuari loginUsuari = response.body();
+                        Toast.makeText(LoginActivity.this,"Welcome:" + loginUsuari.getUsername(),Toast.LENGTH_LONG).show();
+                        Log.d(TAG,"lOGINuSER sUCCESSFUL LOGINUSER" + loginUsuari.getUsername());
+                        saveSharedPreference(loginUsuari);
+                        //Intent intent = new Intent(LoginActivity.this,PerfilMainActivity.class);
+                        //startActivity(intent);
+                        Intent intent = new Intent(LoginActivity.this, PerfilMainActivity.class);
+                        String username = usertext_login.getText().toString();
+                        intent.putExtra("username", username);
+                        startActivity(intent);
+                        finish();
+
+                         */
 
                     } else {
                         Log.d(TAG, "LoginUser Error loguin User:" + response.code());

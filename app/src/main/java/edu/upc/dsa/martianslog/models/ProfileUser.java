@@ -1,21 +1,30 @@
 package edu.upc.dsa.martianslog.models;
 
-public class Usuari
-{
-    private String username;
-    private String password;
+public class ProfileUser {
+
     private String name;
     private String surname;
+    private String username;
+    double coins;
+    int fuel;
+    int food;
 
-    public Usuari(){}
-
-    public Usuari(String username, String password, String name, String surname)
-    {
-        this();
-        this.username = username;
-        this.password = password;
+    public ProfileUser(){}
+    public ProfileUser(String name, String surname, String username, double coins){
         this.name = name;
         this.surname = surname;
+        this.username = username;
+        this.coins = coins;
+        this.fuel = fuel;
+        this.food = food;
+    }
+
+    public double getCoins() {
+        return coins;
+    }
+
+    public void setCoins(double coins) {
+        this.coins = coins;
     }
 
     public String getName() {
@@ -40,13 +49,5 @@ public class Usuari
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

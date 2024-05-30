@@ -34,11 +34,6 @@ public class TiendaActivity extends AppCompatActivity {
     public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
     ApiService apiService;
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
