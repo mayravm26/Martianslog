@@ -112,7 +112,7 @@ public class PerfilMainActivity extends AppCompatActivity
                     double coins = user.getCoins();
                     //TextView nametxt = findViewById(R.id.nameTextView);
                     //PerfilMainActivity.this.nameTxt.setText(name);
-                    PerfilMainActivity.this.nameTxt.setText("Name: "+ name);
+                    PerfilMainActivity.this.nameTxt.setText(name);
                     //TextView surnametxt = findViewById(R.id.surnameTextView);
                     PerfilMainActivity.this.surnameTxt.setText(surname);
                     //TextView coinstxt = findViewById(R.id.coinsTextView);
