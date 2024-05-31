@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+//import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TiendaActivity extends AppCompatActivity {
-    RecyclerView recycle;
+
     TextView dinero;
     SharedPreferences sharedPreferences;
     List<Product> productList;
@@ -39,6 +40,12 @@ public class TiendaActivity extends AppCompatActivity {
     private double totalAmount = 0;
     private List<Product> carrito = new ArrayList<>();
 
+
+    RecyclerView recycle;
+    private MyAdapterTienda adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    //private SwipeRefreshLayout swipeRefreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +54,14 @@ public class TiendaActivity extends AppCompatActivity {
         // Initialize RecyclerView
         recycle = findViewById(R.id.recycle);
         recycle.setLayoutManager(new LinearLayoutManager(this));
+
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(TiendaActivity.this);
+        recycle.setLayoutManager(layoutManager);
+
+        // Set the adapter
+        adapter = new MyAdapterTienda();
+        recycle.setAdapter(adapter);
 
         // Initialize SharedPreferences and set coins text
         dinero = findViewById(R.id.dinero);
@@ -79,9 +94,12 @@ public class TiendaActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.isSuccessful()) {
-                    productList = response.body();
+                    adapter.setData(response.body());
+                    /*productList = response.body();
                     RecycleAdapter adapter = new RecycleAdapter(TiendaActivity.this, productList);
                     recycle.setAdapter(adapter);
+
+                     */
                 } else {
                     Log.e("Error", "Failed to fetch products");
                 }

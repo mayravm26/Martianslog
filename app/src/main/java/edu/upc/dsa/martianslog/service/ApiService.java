@@ -15,7 +15,7 @@ import retrofit2.http.Path;
 
 public interface ApiService
 {
-
+    public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
     @POST("user/login")
     Call<LoginUsuari> loginUser(@Body LoginUsuari user);
 

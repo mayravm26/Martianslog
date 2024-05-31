@@ -13,19 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
+        android:exported="true"
         tools:targetApi="31">
         <activity
             android:name=".activity_splashscreen"
+            android:theme="@style/Theme.Martianslog"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".PerfilMainActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.Martianslog" />
         <activity
             android:name=".TiendaActivity"
@@ -37,7 +34,6 @@
             android:theme="@style/Theme.Martianslog">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

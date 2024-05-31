@@ -54,5 +54,11 @@ dependencies {
     implementation ("com.google.code.gson:gson:2.8.2")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
+    //llibreria picasso
+    //implementation ("com.squareup.picasso:picasso:2.8.0")
+
+   // implementation ("com.github.bumptech.glide:glide:4.8.0")
+
+
 
 }

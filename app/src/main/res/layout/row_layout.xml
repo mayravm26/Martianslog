@@ -19,6 +19,13 @@
         android:textColor="#B4E3A2" /><!-- Color de texto para el ID -->
 
 
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="189dp"
+        android:layout_height="114dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center"/>
+
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -32,13 +39,21 @@
 
     <TextView
         android:id="@+id/price"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="Precio"
-        android:textColor="#B4E3A2" />
+        android:textColor="#B4E3A2"
+        android:textSize="16sp" />
 
+    <TextView
+        android:id="@+id/descrition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Descripción"
+        android:textColor="#B4E3A2"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/button_add_cart"
