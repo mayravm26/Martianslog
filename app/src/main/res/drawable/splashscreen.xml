@@ -1,10 +1,71 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="200dp"
-    android:height="200dp"
-    android:viewportWidth="200"
-    android:viewportHeight="200">
+    android:width="400dp"
+    android:height="400dp"
+    android:viewportWidth="400"
+    android:viewportHeight="400">
+
+    <!-- Saturn -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M90,90
+            m-10,0
+            a40,40 0 1,0 80,0
+            a40,40 0 1,0 -80,0" />
 
     <path
-        android:fillColor="#FFC107"
-        android:pathData="M10,10 L90,10 L90,90 L10,90 Z" />
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M120, 70
+            m-34,0
+            a65,20 0 1,0 68,0"/>
+
+    <!-- First Star Outline -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M50,15
+            L55,28
+            L70,30
+            L57,40
+            L62,55
+            L50,47
+            L38,55
+            L43,40
+            L30,30
+            L45,28
+            Z" />
+
+    <!-- Second Star Outline -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M25,54
+            L30,67
+            L45,69
+            L32,79
+            L37,94
+            L25,86
+            L13,94
+            L18,79
+            L5,69
+            L20,67
+            Z" />
+
+    <!-- Third Star Outline -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M50,101
+            L55,114
+            L70,116
+            L57,126
+            L62,141
+            L50,133
+            L38,141
+            L43,126
+            L30,116
+            L45,114
+            Z" />
+
 </vector>

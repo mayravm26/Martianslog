@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.upc.dsa.martianslog.models.Product;
@@ -31,8 +33,11 @@ public class TiendaActivity extends AppCompatActivity {
     TextView dinero;
     SharedPreferences sharedPreferences;
     List<Product> productList;
-    public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
+    public static final String API_URL = "http://10.0.2.2:8080/dsaApp/";
     ApiService apiService;
+    Button buttonCompra;
+    private double totalAmount = 0;
+    private List<Product> carrito = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,15 @@ public class TiendaActivity extends AppCompatActivity {
 
         // Fetch products from API
         fetchProducts();
+
+        // Initialize the purchase button and set an OnClickListener
+        buttonCompra = findViewById(R.id.button_compra);
+        buttonCompra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                efectuarCompra();
+            }
+        });
     }
 
     private void fetchProducts() {
@@ -68,17 +82,6 @@ public class TiendaActivity extends AppCompatActivity {
                     productList = response.body();
                     RecycleAdapter adapter = new RecycleAdapter(TiendaActivity.this, productList);
                     recycle.setAdapter(adapter);
-                    adapter.setOnClickListener(view -> {
-                        int position = recycle.getChildAdapterPosition(view);
-                        Product selectedProduct = productList.get(position);
-                        Toast.makeText(getApplicationContext(), selectedProduct.getName(), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(TiendaActivity.this, Product.class);
-                        intent.putExtra("Id", selectedProduct.getIdProduct());
-                        intent.putExtra("Nombre", selectedProduct.getName());
-                        intent.putExtra("Precio", selectedProduct.getPrice());
-                        intent.putExtra("Url", selectedProduct.getUrl());
-                        startActivity(intent);
-                    });
                 } else {
                     Log.e("Error", "Failed to fetch products");
                 }
@@ -91,10 +94,46 @@ public class TiendaActivity extends AppCompatActivity {
         });
     }
 
-    class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder> implements View.OnClickListener {
+    private void efectuarCompra() {
+        String username = sharedPreferences.getString("username", "");
+        for (Product product : carrito) {
+            Call<List<Product>> call = apiService.buyProduct(username, product.getIdProduct());
+            call.enqueue(new Callback<List<Product>>() {
+                @Override
+                public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                    if (response.isSuccessful()) {
+                        List<Product> updatedInventory = response.body();
+                        Toast.makeText(TiendaActivity.this, "Compra efectuada", Toast.LENGTH_SHORT).show();
+                        // Update the user's coins and clear the cart
+                        totalAmount = 0;
+                        carrito.clear();
+                        updateDineroTextView();
+                    } else {
+                        Log.e("Error", "Failed to buy product");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Product>> call, Throwable t) {
+                    Log.e("Error", "Network error: " + t.getMessage());
+                }
+            });
+        }
+    }
+
+    private void updateDineroTextView() {
+        dinero.setText("Coins: " + sharedPreferences.getInt("coins", 0));
+    }
+
+    public void addToCart(Product product) {
+        totalAmount += product.getPrice();
+        carrito.add(product);
+        updateDineroTextView();
+    }
+
+    class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder> {
         private List<Product> list;
         private Context context;
-        private View.OnClickListener listener;
 
         public RecycleAdapter(Context context, List<Product> list) {
             this.context = context;
@@ -105,7 +144,6 @@ public class TiendaActivity extends AppCompatActivity {
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout, parent, false);
-            view.setOnClickListener(this);
             return new MyViewHolder(view);
         }
 
@@ -115,6 +153,15 @@ public class TiendaActivity extends AppCompatActivity {
             holder.id.setText("Id: " + product.getIdProduct());
             holder.name.setText("Nombre: " + product.getName());
             holder.price.setText("Precio: " + product.getPrice());
+
+            holder.addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (context instanceof TiendaActivity) {
+                        ((TiendaActivity) context).addToCart(product);
+                    }
+                }
+            });
         }
 
         @Override
@@ -122,25 +169,16 @@ public class TiendaActivity extends AppCompatActivity {
             return list.size();
         }
 
-        public void setOnClickListener(View.OnClickListener listener) {
-            this.listener = listener;
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (listener != null) {
-                listener.onClick(view);
-            }
-        }
-
         class MyViewHolder extends RecyclerView.ViewHolder {
             TextView id, name, price;
+            Button addButton;
 
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
                 id = itemView.findViewById(R.id.id);
                 name = itemView.findViewById(R.id.name);
                 price = itemView.findViewById(R.id.price);
+                addButton = itemView.findViewById(R.id.button_add_cart);
             }
         }
     }
