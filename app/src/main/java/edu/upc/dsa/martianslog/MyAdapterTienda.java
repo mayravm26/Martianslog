@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 //import com.bumptech.glide.Glide;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class MyAdapterTienda extends RecyclerView.Adapter<MyAdapterTienda.ViewHo
         public TextView txtDescription;
         public TextView txtPrice;
         public ImageView icon;
+        public ImageView imageViewicon;
         public View layout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -38,7 +41,7 @@ public class MyAdapterTienda extends RecyclerView.Adapter<MyAdapterTienda.ViewHo
             txtName = (TextView) itemView.findViewById(R.id.name);
             txtDescription = (TextView) itemView.findViewById(R.id.descrition);
             txtPrice = (TextView) itemView.findViewById(R.id.price);
-            icon = (ImageView) itemView.findViewById(R.id.icon);
+            imageViewicon = (ImageView) itemView.findViewById(R.id.icon);
 
         }
     }
@@ -92,11 +95,11 @@ public class MyAdapterTienda extends RecyclerView.Adapter<MyAdapterTienda.ViewHo
         holder.txtDescription.setText(description);
         holder.txtPrice.setText("Precio: " + price);
 
-        /*Glide.with(holder.icon.getContext())
-                .load(ApiService.API_URL+p.url) //url que quiero cargar
-                .into(holder.icon);//imagen que quiero cargar
-
-         */
+        Picasso.get()
+                .load(p.getImatge())
+                .placeholder(R.drawable.ic_launcher_background) // Replace with your placeholder image resource
+                .error(R.drawable.ic_launcher_background)             // Replace with your error image resource
+                .into(holder.imageViewicon);
 
     }
 

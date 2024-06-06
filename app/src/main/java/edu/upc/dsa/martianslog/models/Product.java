@@ -5,16 +5,16 @@ public class Product {
     private String name;
     private String description;
     private double price;
-    public String url;
+    public String imatge;
 
     public Product() {}
 
-    public Product(String idProduct, String name, String description, double price, String url) {
+    public Product(String idProduct, String name, String description, double price, String imatge) {
         this.idProduct = idProduct;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.url = url;
+        this.imatge = imatge;
     }
 
     public String getIdProduct() {
@@ -48,16 +48,12 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-    public String getUrl() {
-        return url;
+
+    public String getImatge() {
+        return imatge;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImatge(String imatge) {
+        this.imatge = imatge;
     }
-
-
-
-
-
 }

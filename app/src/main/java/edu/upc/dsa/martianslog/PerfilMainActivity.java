@@ -61,6 +61,15 @@ public class PerfilMainActivity extends AppCompatActivity
                 startActivity(intent);
             }});
 
+        //Codi del boto per anar al report
+        Button buttongoReport = findViewById(R.id.goReport_btn);
+        buttongoReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PerfilMainActivity.this, ReportActivity.class);
+                startActivity(intent);
+            }});
+
 
         //Codi per recollir el username del login i imprimirlo
         Intent intent = getIntent();

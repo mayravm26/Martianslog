@@ -39,15 +39,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"></TextView>
 
-            <Button
-                android:id="@+id/btnDataProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="showDataOnClick"
-                android:text="Show Data"
-                tools:layout_editor_absoluteX="279dp"
-                tools:layout_editor_absoluteY="238dp" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
@@ -201,12 +192,25 @@
         android:id="@+id/tienda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="504dp"
         android:text="tienda"
         app:backgroundTint="#B0D1A4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+    <Button
+        android:id="@+id/goReport_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="15dp"
+        android:text="REPORT"
+        app:backgroundTint="#DAFF4747"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tienda"
+        app:layout_constraintTop_toBottomOf="@+id/coinsLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

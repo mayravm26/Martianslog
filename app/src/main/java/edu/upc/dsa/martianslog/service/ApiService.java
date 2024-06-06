@@ -6,6 +6,7 @@ import edu.upc.dsa.martianslog.models.Product;
 import java.util.List;
 
 import edu.upc.dsa.martianslog.models.ProfileUser;
+import edu.upc.dsa.martianslog.models.Report;
 import retrofit2.Call;
 import retrofit2.http.POST;
 import retrofit2.http.Body;
@@ -21,6 +22,9 @@ public interface ApiService
 
     @GET("user/getUser/{username}")
     Call<ProfileUser> getUser(@Path("username") String username);
+
+    @POST("user/report/add")
+    Call<Report> addReport(@Body Report report);
 
     @POST("user/register")
     Call<RegisterUsuari> addUser(@Body RegisterUsuari usuari);
