@@ -1,5 +1,6 @@
 package edu.upc.dsa.martianslog.service;
 
+import edu.upc.dsa.martianslog.models.Pregunta;
 import edu.upc.dsa.martianslog.models.Product;
 
 
@@ -43,4 +44,8 @@ public interface ApiService
 
     @POST("/store/buyProduct/{username}/{idProduct}")
     Call<List<Product>> buyProduct(@Path("username") String username, @Path("idProduct") String idProduct);
+
+    @POST("user/question")  // Ruta para enviar la consulta
+    Call<Void> addQuestion(@Body Pregunta pregunta);
+
 }
