@@ -21,7 +21,7 @@
             android:theme="@style/Theme.Martianslog">
         </activity>
         <activity
-            android:name=".activity_splashscreen"
+            android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Martianslog"></activity>
         <activity
@@ -55,6 +55,10 @@
             android:name=".RegisterActivity"
             android:exported="true"
             android:theme="@style/Theme.Martianslog" />
+        <activity android:name=".ConsultaActivity">
+
+        </activity>
+
     </application>
 
 </manifest>
