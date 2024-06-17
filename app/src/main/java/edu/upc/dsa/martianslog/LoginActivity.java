@@ -27,7 +27,8 @@ public class LoginActivity extends AppCompatActivity
     TextView usertext_login;
     TextView passtext_log;
     ApiService apiService;
-    public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
+    public static final String API_URL="http://147.83.7.204:80/dsaApp/";
+    //public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
     private static final String TAG= "POKEDEX";
 
         @Override
@@ -70,8 +71,6 @@ public class LoginActivity extends AppCompatActivity
                         intent.putExtra("username", usernamelogin);
                         startActivity(intent);
                         finish();
-
-
 
                         /*LoginUsuari loginUsuari = response.body();
                         Toast.makeText(LoginActivity.this,"Welcome:" + loginUsuari.getUsername(),Toast.LENGTH_LONG).show();

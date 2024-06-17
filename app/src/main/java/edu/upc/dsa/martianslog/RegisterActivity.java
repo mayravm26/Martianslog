@@ -34,7 +34,10 @@ public class RegisterActivity extends AppCompatActivity
     ProgressBar progressBar;
 
     ApiService apiService;
-    public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
+    //public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
+    //
+    //
+    public static final String API_URL="http://147.83.7.204:80/dsaApp/";
     private static final String TAG2="POKEDEX1";
 
     protected void onCreate(Bundle savedInstanceState)
@@ -92,9 +95,17 @@ public class RegisterActivity extends AppCompatActivity
                 Log.d(TAG2,"aDDUSER Saver password"+userRegister.getPassword());
                 editor.commit();
 
-                Intent intent= new Intent(RegisterActivity.this,PerfilMainActivity.class);
+                Intent intent = new Intent(RegisterActivity.this,PerfilMainActivity.class);
+                String usernameregister = user.toString();
+                intent.putExtra("username", usernameregister);
                 startActivity(intent);
                 finish();
+
+                /*Intent intent= new Intent(RegisterActivity.this,PerfilMainActivity.class);
+                startActivity(intent);
+                finish();
+
+                 */
             }
 
             @Override

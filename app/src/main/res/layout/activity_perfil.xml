@@ -212,5 +212,17 @@
         app:layout_constraintStart_toStartOf="@+id/tienda"
         app:layout_constraintTop_toBottomOf="@+id/coinsLayout" />
 
+    <Button
+        android:id="@+id/home_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="700dp"
+        android:layout_marginEnd="169dp"
+        android:text="HOME"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

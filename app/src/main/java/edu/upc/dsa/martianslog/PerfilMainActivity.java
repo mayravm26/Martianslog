@@ -20,7 +20,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PerfilMainActivity extends AppCompatActivity
 {
-    public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
+    //public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
+    public static final String API_URL="http://147.83.7.204:80/dsaApp/";
     ApiService apiService;
 
     //Codi per recollir el username del login i imprimirlo
@@ -70,6 +71,16 @@ public class PerfilMainActivity extends AppCompatActivity
                 startActivity(intent);
             }});
 
+        Button buttongoHome = findViewById(R.id.home_btn);
+        buttongoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PerfilMainActivity.this, HomeActivity.class);
+                String username = username_login.toString();
+                intent.putExtra("username", username);
+                startActivity(intent);
+            }});
+
 
         //Codi per recollir el username del login i imprimirlo
         Intent intent = getIntent();
@@ -105,6 +116,12 @@ public class PerfilMainActivity extends AppCompatActivity
 
         //Cridem a la funcio fetchUser per omplir dades del perfil
         //fetchUser();
+
+    }
+    public void goHome(View view)
+    {
+        Intent intent = new Intent(this,HomeActivity.class);
+        startActivity(intent);
 
     }
 

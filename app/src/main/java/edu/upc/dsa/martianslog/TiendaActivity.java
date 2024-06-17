@@ -34,7 +34,8 @@ public class TiendaActivity extends AppCompatActivity {
     TextView dinero;
     SharedPreferences sharedPreferences;
     List<Product> productList;
-    public static final String API_URL = "http://10.0.2.2:8080/dsaApp/";
+    //public static final String API_URL = "http://10.0.2.2:8080/dsaApp/";
+    public static final String API_URL="http://147.83.7.204:80/dsaApp/";
     ApiService apiService;
     Button buttonCompra;
     private double totalAmount = 0;
@@ -76,7 +77,28 @@ public class TiendaActivity extends AppCompatActivity {
         apiService = retrofit.create(ApiService.class);
 
         // Fetch products from API
-        fetchProducts();
+        //fetchProducts();
+        Call<List<Product>> call = apiService.getStoreProducts();
+        call.enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    adapter.setData(response.body());
+                    /*productList = response.body();
+                    RecycleAdapter adapter = new RecycleAdapter(TiendaActivity.this, productList);
+                    recycle.setAdapter(adapter);
+
+                     */
+                } else {
+                    Log.e("Error", "Failed to fetch products");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Log.e("Error", "Network error: " + t.getMessage());
+            }
+        });
 
         // Initialize the purchase button and set an OnClickListener
         buttonCompra = findViewById(R.id.button_compra);

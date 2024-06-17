@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity
     Button ir_login_tv;
     Button ir_register_tv;
     ApiService apiService;
-    public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
+    public static final String API_URL="http://147.83.7.204:80/dsaApp/";
+    //public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
     private static final String TAG= "POKEDEX";
 
 
