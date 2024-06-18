@@ -45,7 +45,13 @@ public interface ApiService
     @POST("/store/buyProduct/{username}/{idProduct}")
     Call<List<Product>> buyProduct(@Path("username") String username, @Path("idProduct") String idProduct);
 
-    @POST("user/question")  // Ruta para enviar la consulta
-    Call<Void> addQuestion(@Body Pregunta pregunta);
+
+    @POST("/pregunta")
+    Call<Void> enviarPregunta(@Body Pregunta pregunta);
+
+
+
 
 }
+
+
