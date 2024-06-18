@@ -31,7 +31,7 @@ public interface ApiService
     @POST("user/register")
     Call<RegisterUsuari> addUser(@Body RegisterUsuari usuari);
 
-    @GET("storeBBDD/getStoreProducts")
+    @GET("store/getStoreProducts")
     Call<List<Product>> getStoreProducts();
 
     @POST("store/addProduct")
