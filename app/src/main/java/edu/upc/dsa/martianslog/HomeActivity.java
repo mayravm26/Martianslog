@@ -47,4 +47,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this,TiendaActivity.class);
         startActivity(intent);
     }
+    public void goPregunta(View view) {
+        Intent intent = new Intent(this, PreguntaActivity.class);
+        startActivity(intent); }
 }

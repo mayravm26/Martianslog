@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PreguntaActivity">
+    tools:context=".PreguntaActivity"
+    tools:ignore="ExtraText"
+    android:background="@drawable/background1">
+
 
     <Button
         android:id="@+id/buttonEnviar"
@@ -13,6 +16,7 @@
         android:layout_marginTop="40dp"
         android:onClick="realizarConsulta"
         android:text="Enviar"
+        android:background="#B4E3A2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.73"
@@ -29,6 +33,7 @@
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="34sp"
+        android:background="#B4E3A2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.307"
@@ -40,6 +45,7 @@
         android:id="@+id/ValorTitulo"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:background="#B4E3A2"
         android:ems="10"
         android:hint="Ingrese el título"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,12 +53,13 @@
         app:layout_constraintHorizontal_bias="0.393"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462" />
+        app:layout_constraintVertical_bias="0.575" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="90dp"
         android:layout_height="25dp"
+        android:background="#B4E3A2"
         android:text="Titulo"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,12 +67,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41" />
+        app:layout_constraintVertical_bias="0.48" />
 
     <TextView
         android:id="@+id/message"
         android:layout_width="90dp"
         android:layout_height="25dp"
+        android:background="#B4E3A2"
         android:text="Mensaje"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,26 +81,28 @@
         app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintVertical_bias="0.661" />
 
     <EditText
         android:id="@+id/ValorFecha"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:background="#B4E3A2"
         android:ems="10"
-        android:inputType="text"
         android:hint="Ingrese la fecha"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.393"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.387" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="90dp"
         android:layout_height="23dp"
+        android:background="#B4E3A2"
         android:text="Fecha"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,23 +110,24 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21" />
+        app:layout_constraintVertical_bias="0.314" />
 
     <EditText
         android:id="@+id/ValorMensaje"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:autofillHints=""
+        android:background="#B4E3A2"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
         android:hint="Ingrese el mensaje"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665" />
+        app:layout_constraintVertical_bias="0.734" />
 
     <TextView
         android:id="@+id/Respuesta"
@@ -124,6 +135,7 @@
         android:layout_height="23dp"
         android:text="Respuesta"
         android:textColor="#000000"
+        android:background="#B4E3A2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.464"
@@ -139,6 +151,7 @@
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:hint="Ingrese el remitente"
+        android:background="#B4E3A2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.442"
@@ -151,6 +164,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Volver"
+        android:background="#B4E3A2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.27"
