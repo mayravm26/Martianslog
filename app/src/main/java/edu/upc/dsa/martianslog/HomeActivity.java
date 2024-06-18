@@ -22,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         tienda = findViewById(R.id.tienda_btn);
         perfil = findViewById(R.id.perfil_btn);
         report = findViewById(R.id.report_btn);
+        faqs = findViewById(R.id.faqs_btn);
         //Codi per recollir el username del login i imprimirlo
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
@@ -49,5 +50,10 @@ public class HomeActivity extends AppCompatActivity {
     }
     public void goPregunta(View view) {
         Intent intent = new Intent(this, PreguntaActivity.class);
-        startActivity(intent); }
+        startActivity(intent);
+    }
+    public void goFaqs(View view) {
+        Intent intent = new Intent(this, FaqActivity.class);
+        startActivity(intent);
+    }
 }

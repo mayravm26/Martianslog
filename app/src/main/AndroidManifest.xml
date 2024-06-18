@@ -21,6 +21,11 @@
             android:theme="@style/Theme.Martianslog">
         </activity>
         <activity
+            android:name=".FaqActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Martianslog">
+        </activity>
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Martianslog"></activity>
