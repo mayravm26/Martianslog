@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import edu.upc.dsa.martianslog.models.ProfileUser;
 import edu.upc.dsa.martianslog.service.ApiService;
@@ -53,23 +54,6 @@ public class PerfilMainActivity extends AppCompatActivity
         apiService = retrofit.create(ApiService.class);
 
 
-        //Codi del boto per anar a la botiga
-        Button buttonOpenListaActivity = findViewById(R.id.tienda);
-        buttonOpenListaActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PerfilMainActivity.this, TiendaActivity.class);
-                startActivity(intent);
-            }});
-
-        //Codi del boto per anar al report
-        Button buttongoReport = findViewById(R.id.goReport_btn);
-        buttongoReport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PerfilMainActivity.this, ReportActivity.class);
-                startActivity(intent);
-            }});
 
         Button buttongoHome = findViewById(R.id.home_btn);
         buttongoHome.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +62,15 @@ public class PerfilMainActivity extends AppCompatActivity
                 Intent intent = new Intent(PerfilMainActivity.this, HomeActivity.class);
                 String username = username_login.toString();
                 intent.putExtra("username", username);
+                startActivity(intent);
+            }});
+
+        Button buttonlogout = findViewById(R.id.logOut_btn);
+        buttonlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PerfilMainActivity.this,"Goodbye "+ username_login, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(PerfilMainActivity.this, MainActivity.class);
                 startActivity(intent);
             }});
 

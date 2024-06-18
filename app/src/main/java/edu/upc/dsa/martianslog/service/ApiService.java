@@ -19,7 +19,7 @@ import retrofit2.http.Path;
 public interface ApiService
 {
     public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
-    @POST("user/login")
+    @POST("userBBDD/login")
     Call<LoginUsuari> loginUser(@Body LoginUsuari user);
 
     @GET("user/getUser/{username}")
@@ -31,7 +31,7 @@ public interface ApiService
     @POST("user/register")
     Call<RegisterUsuari> addUser(@Body RegisterUsuari usuari);
 
-    @GET("store/getStoreProducts")
+    @GET("storeBBDD/getStoreProducts")
     Call<List<Product>> getStoreProducts();
 
     @POST("store/addProduct")
