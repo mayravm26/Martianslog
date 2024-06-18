@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConsultaActivity extends AppCompatActivity {
 
-    EditText editTextDate, editTextMessage, editTextTitle, editTextSender;
+    /*EditText editTextDate, editTextMessage, editTextTitle, editTextSender;
     Button buttonEnviar;
     SharedPreferences sharedPreferences;
     ApiService apiService;
@@ -77,7 +77,7 @@ public class ConsultaActivity extends AppCompatActivity {
     }
 
     // Método para añadir la pregunta utilizando Retrofit
-    private void addQuestion(Pregunta pregunta) {
+    /*private void addQuestion(Pregunta pregunta) {
         Call<Void> questionResponseCall = apiService.addQuestion(pregunta);
         questionResponseCall.enqueue(new Callback<Void>() {
             @Override
@@ -103,4 +103,6 @@ public class ConsultaActivity extends AppCompatActivity {
             }
         });
     }
+
+     */
 }

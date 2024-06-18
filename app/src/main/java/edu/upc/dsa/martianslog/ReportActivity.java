@@ -22,8 +22,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ReportActivity extends AppCompatActivity {
 
-    public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
-    //public static final String API_URL="http://147.83.7.204:8080/dsaApp/";
+    //public static final String API_URL="http://10.0.2.2:8080/dsaApp/";
+    public static final String API_URL="http://147.83.7.204:80/dsaApp/";
     ApiService apiService;
     TextView informertxt;
     TextView datetxt;
