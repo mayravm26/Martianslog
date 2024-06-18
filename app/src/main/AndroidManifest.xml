@@ -43,6 +43,11 @@
             android:theme="@style/Theme.Martianslog">
         </activity>
         <activity
+            android:name=".PreguntaActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Martianslog">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Martianslog">

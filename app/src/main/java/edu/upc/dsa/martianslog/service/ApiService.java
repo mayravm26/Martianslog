@@ -49,7 +49,7 @@ public interface ApiService
     Call<List<FAQ>> getFAQs();
 
 
-    @POST("/pregunta")
+    @POST("user/question/add")
     Call<Void> enviarPregunta(@Body Pregunta pregunta);
 
 
