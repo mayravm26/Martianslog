@@ -3,9 +3,11 @@ package edu.upc.dsa.martianslog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +27,7 @@ public class MyAdapterTienda extends RecyclerView.Adapter<MyAdapterTienda.ViewHo
     private List<Product> productList;
     ApiService apiService;
     ProgressBar progressBar1;
+    Button comprarbtn;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -34,6 +37,7 @@ public class MyAdapterTienda extends RecyclerView.Adapter<MyAdapterTienda.ViewHo
         public ImageView icon;
         public ImageView imageViewicon;
         public View layout;
+        public Button comprarbtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -42,6 +46,7 @@ public class MyAdapterTienda extends RecyclerView.Adapter<MyAdapterTienda.ViewHo
             txtDescription = (TextView) itemView.findViewById(R.id.descrition);
             txtPrice = (TextView) itemView.findViewById(R.id.price);
             imageViewicon = (ImageView) itemView.findViewById(R.id.icon);
+            comprarbtn = (Button) itemView.findViewById(R.id.button_comprar);
 
         }
     }
@@ -100,6 +105,13 @@ public class MyAdapterTienda extends RecyclerView.Adapter<MyAdapterTienda.ViewHo
                 .placeholder(R.drawable.ic_launcher_background) // Replace with your placeholder image resource
                 .error(R.drawable.ic_launcher_background)             // Replace with your error image resource
                 .into(holder.imageViewicon);
+
+        holder.comprarbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(),"S'ha efectuat la compra", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

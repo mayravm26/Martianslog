@@ -1,7 +1,7 @@
 package edu.upc.dsa.martianslog;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 //import android.support.v4.widget.SwipeRefreshLayout;
@@ -37,7 +37,7 @@ public class TiendaActivity extends AppCompatActivity {
     //public static final String API_URL = "http://10.0.2.2:8080/dsaApp/";
     public static final String API_URL="http://147.83.7.204:80/dsaApp/";
     ApiService apiService;
-    Button buttonCompra;
+    Button buttonCompra, buttonComprar;
     private double totalAmount = 0;
     private List<Product> carrito = new ArrayList<>();
 
@@ -47,6 +47,7 @@ public class TiendaActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     //private SwipeRefreshLayout swipeRefreshLayout;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +68,7 @@ public class TiendaActivity extends AppCompatActivity {
         // Initialize SharedPreferences and set coins text
         dinero = findViewById(R.id.dinero);
         sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
-        dinero.setText("Coins: " + sharedPreferences.getInt("coins", 0));
+        dinero.setText("Coins: " + sharedPreferences.getInt("coins", 100));
 
         // Initialize Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -101,13 +102,17 @@ public class TiendaActivity extends AppCompatActivity {
         });
 
         // Initialize the purchase button and set an OnClickListener
-        buttonCompra = findViewById(R.id.button_compra);
+        /*buttonCompra = findViewById(R.id.button_compra);
         buttonCompra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(TiendaActivity.this,"S'ha efectuat la compra", Toast.LENGTH_LONG).show();
                 efectuarCompra();
             }
         });
+
+         */
+
     }
 
     private void fetchProducts() {
@@ -218,7 +223,7 @@ public class TiendaActivity extends AppCompatActivity {
                 id = itemView.findViewById(R.id.id);
                 name = itemView.findViewById(R.id.name);
                 price = itemView.findViewById(R.id.price);
-                addButton = itemView.findViewById(R.id.button_add_cart);
+                addButton = itemView.findViewById(R.id.button_comprar);
             }
         }
     }

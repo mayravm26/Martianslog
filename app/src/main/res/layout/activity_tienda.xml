@@ -27,16 +27,6 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 
-    <Button
-        android:id="@+id/button_compra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Efectuar Compra"
-        android:layout_marginTop="20dp"
-        app:backgroundTint="#B4E3A2"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -22,16 +22,16 @@ public interface ApiService
     @POST("userBBDD/login")
     Call<LoginUsuari> loginUser(@Body LoginUsuari user);
 
-    @GET("user/getUser/{username}")
+    @GET("userBBDD/getUser/{username}")
     Call<ProfileUser> getUser(@Path("username") String username);
 
     @POST("user/report/add")
     Call<Report> addReport(@Body Report report);
 
-    @POST("user/register")
+    @POST("userBBDD/reg2")
     Call<RegisterUsuari> addUser(@Body RegisterUsuari usuari);
 
-    @GET("store/getStoreProducts")
+    @GET("storeBBDD/getProducts")
     Call<List<Product>> getStoreProducts();
 
     @POST("store/addProduct")
