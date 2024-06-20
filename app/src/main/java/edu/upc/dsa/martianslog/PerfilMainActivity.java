@@ -11,6 +11,9 @@ import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import edu.upc.dsa.martianslog.models.ProfileUser;
 import edu.upc.dsa.martianslog.service.ApiService;
 import retrofit2.Call;
@@ -43,6 +46,7 @@ public class PerfilMainActivity extends AppCompatActivity
         nameTxt.setText("Name");
         surnameTxt.setText("Surname");
         coinsTxt.setText("coins");
+
 
 
 

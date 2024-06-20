@@ -12,6 +12,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import edu.upc.dsa.martianslog.models.Report;
 import edu.upc.dsa.martianslog.service.ApiService;
 import retrofit2.Call;
@@ -44,6 +47,26 @@ public class ReportActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         apiService = retrofit.create(ApiService.class);
+
+        //Set date
+        //SET DATE
+        // Obtener la fecha de hoy
+        LocalDate today = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            today = LocalDate.now();
+        }
+
+        // Formatear la fecha
+        DateTimeFormatter formatter = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        }
+        String todayDate = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            todayDate = today.format(formatter);
+        }
+
+        ReportActivity.this.datetxt.setText(todayDate);
     }
     public void sendReport(View view){
         Report r = new Report(this.datetxt.getText().toString(), this.informertxt.getText().toString(), this.messagetxt.getText().toString());

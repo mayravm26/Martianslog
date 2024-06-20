@@ -48,6 +48,9 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+    //llibreria per la data
+    implementation ("org.threeten:threetenbp:1.4.4:no-tzdb")
+
     //libreriasRetrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.6.4")
